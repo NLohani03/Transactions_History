@@ -1,7 +1,6 @@
 #ifndef _PROJECT4_HPP_
 #define _PROJECT4_HPP_
 ////////////////////////////////////
-// ECE 150: Project 4
 //
 // Authors: Douglas Harder
 //          Hiren Patel
