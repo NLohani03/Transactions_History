@@ -13,7 +13,6 @@
 //
 
 // Constructor
-// TASK 1
 //
 Transaction::Transaction(std::string ticker_symbol,
                          unsigned int day_date, 
@@ -47,7 +46,6 @@ Transaction::Transaction(std::string ticker_symbol,
 }
 
 // Destructor
-// TASK 1
 //
 
 Transaction::~Transaction() { 
@@ -57,7 +55,6 @@ Transaction::~Transaction() {
 
 
 // Overloaded < operator.
-// TASK 2
 //
 bool Transaction::operator < (Transaction const & other) { 
   if ( this->year < other.year) { 
@@ -129,7 +126,6 @@ void Transaction::print() {
 //
 
 // Constructor
-// TASK 3
 //
 
 History::History() { 
@@ -138,7 +134,6 @@ History::History() {
 }
 
 // Destructor
-// TASK 3
 //
 History::~History(){ 
   Transaction * p_temp{p_head}; 
@@ -154,15 +149,10 @@ History::~History(){
 
 
 // read_history(...): Read the transaction history from file.
-// TASK 4 - done 
 //
 void History::read_history(){
   ece150::open_file(); 
 
-  //read transactions one at a time 
-  //  read specific parts:day,month,year,etc
-  //  dynamically allocate the transaction objects 
-  //  call insert 
 
   while(ece150::next_trans_entry() == true) {   
     ece150::get_trans_symbol(); 
@@ -186,10 +176,8 @@ void History::read_history(){
 
 // Second Submission
 // insert(...): Insert transaction into linked list.
-// TASK 5 - done
 //
 void History::insert(Transaction * p_new_trans) {  
-  //code from David Lau's help session on Nov 17
 
   //change where p_head is pointing to p_new_trans
   if ( p_head == nullptr) { 
@@ -208,7 +196,6 @@ void History::insert(Transaction * p_new_trans) {
 }
 
 // sort_by_date(): Sort the linked list by trade date.
-// TASK 6
 //
 void History::sort_by_date(){
   Transaction *p_front = nullptr;
@@ -248,7 +235,6 @@ void History::sort_by_date(){
 }
 
 // update_acb_cgl(): Updates the ACB and CGL values.
-// TASK 7
 //
 
 void History::update_acb_cgl() {
@@ -287,7 +273,6 @@ void History::update_acb_cgl() {
 }
 
 // compute_cgl(): )Compute the ACB, and CGL.
-// TASK 8
 
 double History::compute_cgl(unsigned int year) {  
   //calculate the capital gains for every transction in history
@@ -307,7 +292,6 @@ double History::compute_cgl(unsigned int year) {
 }
 
 // print() Print the transaction history.
-//TASK 9
 //
 
 void History::print(){ 
@@ -325,7 +309,6 @@ void History::print(){
 }
 
 // GIVEN
-// get_p_head(): Full access to the linked list.
 //
 Transaction *History::get_p_head() { 
   return p_head; 
